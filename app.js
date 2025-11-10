@@ -54,5 +54,8 @@ app.get('/contact', (req, res) => {
 app.get('/post', (req, res) => {
   res.render('post');
 });
+app.get('/newPost', (req, res) => {
+  res.render('createPost');
+});
 
 app.listen(4000, () => console.log('Server running on http://localhost:4000'));
