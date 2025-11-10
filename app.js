@@ -29,7 +29,7 @@ console.log(" Connection established!!");
     
 //     console.log('Created Table !!');
 
-    // Insert data of user
+//     Insert data of user
 // mysql_db.execute(
 //   'INSERT INTO `USER` (TITLE, CONTENT) VALUES (?, ?)',
 //   ['HELLO WORLD!', 'WELCOME TO HELLO WORLD CONTENT HOPE YOU LIKE THE CONTENT']
@@ -40,6 +40,11 @@ console.log(" Connection established!!");
 
 
 app.set('view engine', 'ejs');
+
+app.use(express.json());
+
+app.use(express.urlencoded());
+
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -56,6 +61,6 @@ app.get('/post', (req, res) => {
 });
 app.get('/newPost', (req, res) => {
   res.render('createPost');
-});
+  });
 
 app.listen(4000, () => console.log('Server running on http://localhost:4000'));
