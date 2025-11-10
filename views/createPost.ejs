@@ -26,36 +26,20 @@
                         <p>Want to Create Post and Publish,Fill out the form as soon as possible!</p>
                         <div class="my-5">
                             
-                            <form method = "Post" id="postForm" data-sb-form-api-token="API_TOKEN">
+                            <form action = "/posts/store" method = "POST" id="postForm" data-sb-form-api-token="API_TOKEN">
                                 <div class="form-floating">
-                                    <input class="form-control" id="Title" type="text" placeholder="Enter your Title..." data-sb-validations="required" />
-                                    <label name = "Title" for="Title">Title</label>
+                                    <input class="form-control" id="Title" type="text" name = "Title" placeholder="Enter your Title..." data-sb-validations="required" />
+                                    <label for="Title">Title</label>
                                     <div class="invalid-feedback" data-sb-feedback="Title:required">A Title is required.</div>
                                 </div>
+
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="message" placeholder="Enter your Content here..." style="height: 12rem" data-sb-validations="required"></textarea>
-                                    <label name = "Content" for="message">Content</label>
+                                    <textarea class="form-control" id="message" name = "body" placeholder="Enter your Content here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <label for="message">Content</label>
                                     <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                                 </div>
-                                <br />
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href="https://startbootstrap.com/solpost-forms">https://startbootstrap.com/solpost-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                                <!-- Submit Button-->
+                                
+                               <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Post</button>
                             </form>
                         </div>

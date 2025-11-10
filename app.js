@@ -50,17 +50,28 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
   res.render('index');
 });
+
 app.get('/about', (req, res) => {
   res.render('about');
 });
+
 app.get('/contact', (req, res) => {
   res.render('contact');
 });
+
 app.get('/post', (req, res) => {
   res.render('post');
 });
+
 app.get('/newPost', (req, res) => {
   res.render('createPost');
   });
+
+app.post('/posts/store', (req, res) => {
+  console.log(res.body);
+  res.redirect('/');
+  });
+
+
 
 app.listen(4000, () => console.log('Server running on http://localhost:4000'));
