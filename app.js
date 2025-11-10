@@ -9,19 +9,34 @@ const mysql_db = mysql.createConnection({
   database:"blogpost_db"
 })
 
+console.log(" Connection established!!");
+
+
 //Create DB
 
-mysql_db.execute('create database blogpost_db')
+// mysql_db.execute('create database blogpost_db')
+// console.log('DB is created');
 
 //create table in db
 
-mysql_db.execute(`
-  CREATE TABLE USER(
-  ID INT AUTO_INCREMENT ,
-  TITLE VARCHAR(20) NOT NULL,
-  CONTENT VARCHAR(250) NOT NULL UNIQUE
-  );
-    `);
+// mysql_db.execute(`
+//   CREATE TABLE USER(
+//     ID INT AUTO_INCREMENT PRIMARY KEY,
+//     TITLE VARCHAR(20),
+//     CONTENT VARCHAR(250)
+//     );
+//     `);
+    
+//     console.log('Created Table !!');
+
+    // Insert data of user
+// mysql_db.execute(
+//   'INSERT INTO `USER` (TITLE, CONTENT) VALUES (?, ?)',
+//   ['HELLO WORLD!', 'WELCOME TO HELLO WORLD CONTENT HOPE YOU LIKE THE CONTENT']
+// );
+
+//     console.log('Content Inserted Into the Table !!');
+
 
 
 app.set('view engine', 'ejs');
