@@ -71,6 +71,7 @@ app.post('/posts/store', (req, res) => {
   'INSERT INTO `USER` (TITLE, CONTENT) VALUES (?, ?)',
   [data.Title,data.body]
 ); 
+
 console.log('Insertion Completed');
   res.redirect('/');
   });
