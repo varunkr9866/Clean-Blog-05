@@ -30,10 +30,7 @@ console.log(" Connection established!!");
 //     console.log('Created Table !!');
 
 //     Insert data of user
-// mysql_db.execute(
-//   'INSERT INTO `USER` (TITLE, CONTENT) VALUES (?, ?)',
-//   ['HELLO WORLD!', 'WELCOME TO HELLO WORLD CONTENT HOPE YOU LIKE THE CONTENT']
-// );
+
 
 //     console.log('Content Inserted Into the Table !!');
 
@@ -68,7 +65,13 @@ app.get('/newPost', (req, res) => {
   });
 
 app.post('/posts/store', (req, res) => {
-  console.log(res.body);
+  data =req.body;
+  
+ mysql_db.execute(
+  'INSERT INTO `USER` (TITLE, CONTENT) VALUES (?, ?)',
+  [data.Title,data.body]
+); 
+console.log('Insertion Completed');
   res.redirect('/');
   });
 
