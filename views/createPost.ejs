@@ -26,7 +26,7 @@
                         <p>Want to Create Post and Publish,Fill out the form as soon as possible!</p>
                         <div class="my-5">
                             
-                            <form action = "/posts/store" method = "POST" id="postForm" >
+                            <form action = "/posts/store" method = "POST" id="postForm"  enctype="multipart/form-data" >
                                 <div class="form-floating">
                                     <input class="form-control" id="Title" type="text" name = "Title" placeholder="Enter your Title..." data-sb-validations="required" />
                                     <label for="Title">Title</label>
@@ -38,10 +38,11 @@
                                     <label for="message">Content</label>
                                     <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                                 </div>
-
+                               
                                 <div>
-                                    <input type="image" name = "postimage">
+                                    <input type="file" name="avatar" />
                                 </div>
+                                    
 
                                <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Post</button>

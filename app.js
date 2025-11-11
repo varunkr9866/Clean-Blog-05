@@ -1,5 +1,21 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+
+const multer  = require('multer')
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    return cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+   return cb(null, `${Date.now()} - ${file.originalname}`)
+  },
+});
+
+const upload = multer({ storage })
+
 
 const mysql = require('mysql2');
 const mysql_db = mysql.createConnection({
@@ -64,18 +80,17 @@ app.get('/newPost', (req, res) => {
   res.render('createPost');
   });
 
-app.post('/posts/store', (req, res) => {
+app.post('/posts/store',upload.single('avatar'), (req, res) => {
   data =req.body;
+  console.log(req.file, req.body)
   
  mysql_db.execute(
   'INSERT INTO `USER` (TITLE, CONTENT) VALUES (?, ?)',
   [data.Title,data.body]
 ); 
 
-console.log('Insertion Completed');
   res.redirect('/');
   });
-
 
 
 app.listen(4000, () => console.log('Server running on http://localhost:4000'));
